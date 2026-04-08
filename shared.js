@@ -1,6 +1,7 @@
 // =============================================
 // PRODUCT & CATEGORY DATA
 // =============================================
+
 const STORE_URL = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
 
 const categories = [
