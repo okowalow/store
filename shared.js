@@ -13,26 +13,26 @@ const categories = [
 ];
 
 const products = [
-    { id: 'INK-001', title: 'Atrament Czarny Klasyczny 50ml', price: 29.99, categoryId: '1', categoryName: 'Atramenty', icon: '\u{1F5A4}', sku: 'ATR-BLK-50', image: 'https://placehold.co/400x400/1a1a1a/ffffff?text=Atrament+Czarny', description: 'Klasyczny czarny atrament do kaligrafii. Doskonala plynnosc, gleboka czern. Idealny do codziennej pracy z piorem.' },
-    { id: 'INK-002', title: 'Atrament Sepia Vintage 30ml', price: 34.99, categoryId: '1', categoryName: 'Atramenty', icon: '\u{1F90E}', sku: 'ATR-SEP-30', image: 'https://placehold.co/400x400/8B4513/ffffff?text=Atrament+Sepia', description: 'Atrament w kolorze sepii, inspirowany historycznymi dokumentami. Nadaje listom i kaligrafii antyczny charakter.' },
-    { id: 'INK-003', title: 'Atrament Blekitny Niebo 50ml', price: 32.99, categoryId: '1', categoryName: 'Atramenty', icon: '\u{1F499}', sku: 'ATR-BLU-50', image: 'https://placehold.co/400x400/4682B4/ffffff?text=Atrament+Blekitny', description: 'Delikatny blekitny atrament o subtelnym odcieniu nieba. Swietny do listow i zaprosen.' },
-    { id: 'INK-004', title: 'Zestaw Atramentow 6 kolorow', price: 89.99, categoryId: '1', categoryName: 'Atramenty', icon: '\u{1F3A8}', sku: 'ATR-SET-6', image: 'https://placehold.co/400x400/8b6914/ffffff?text=Zestaw+Atramentow', description: 'Zestaw szesciu atramentow w roznych kolorach: czarny, sepia, blekitny, zielony, fioletowy, czerwony.' },
-    { id: 'NIB-001', title: 'Stalowka Nikko G', price: 12.99, categoryId: '2', categoryName: 'Stalowki', icon: '\u{2712}\u{FE0F}', sku: 'NIB-NKG-01', image: 'https://placehold.co/400x400/2c1810/ffffff?text=Nikko+G', description: 'Popularna stalowka Nikko G, idealna dla poczatkujacych. Elastyczna i latwa w uzyciu.' },
-    { id: 'NIB-002', title: 'Stalowka Brause Steno Blue Pumpkin', price: 8.99, categoryId: '2', categoryName: 'Stalowki', icon: '\u{2712}\u{FE0F}', sku: 'NIB-BRS-01', image: 'https://placehold.co/400x400/2c1810/ffffff?text=Brause+Steno', description: 'Stalowka Brause o sredniej elastycznosci. Swietna do stylu italik i copperplate.' },
-    { id: 'NIB-003', title: 'Stalowka Hunt 101', price: 14.99, categoryId: '2', categoryName: 'Stalowki', icon: '\u{2712}\u{FE0F}', sku: 'NIB-HNT-01', image: 'https://placehold.co/400x400/2c1810/ffffff?text=Hunt+101', description: 'Profesjonalna stalowka Hunt 101 z duzym zbiornikiem atramentu. Idealna do dlugich sesji kaligraficznych.' },
-    { id: 'NIB-004', title: 'Zestaw stalowek 10 szt.', price: 49.99, categoryId: '2', categoryName: 'Stalowki', icon: '\u{2712}\u{FE0F}', sku: 'NIB-SET-10', image: 'https://placehold.co/400x400/2c1810/ffffff?text=Zestaw+Stalowek', description: 'Zestaw dziesieciu roznych stalowek do kaligrafii. Zawiera stalowki pointed pen i broad edge.' },
-    { id: 'PEN-001', title: 'Pioro Wieczne Lamy Safari', price: 149.99, categoryId: '3', categoryName: 'Piora wieczne', icon: '\u{1F58B}\u{FE0F}', sku: 'PEN-LAM-01', image: 'https://placehold.co/400x400/333333/ffffff?text=Lamy+Safari', description: 'Kultowe pioro wieczne Lamy Safari. Ergonomiczny chwyt, wymienne naboje. Dostepne w kolorze czarnym.' },
-    { id: 'PEN-002', title: 'Pioro Wieczne Platinum Preppy', price: 39.99, categoryId: '3', categoryName: 'Piora wieczne', icon: '\u{1F58B}\u{FE0F}', sku: 'PEN-PLT-01', image: 'https://placehold.co/400x400/333333/ffffff?text=Platinum+Preppy', description: 'Niedrogie pioro wieczne Platinum Preppy. Swietne dla poczatkujacych. Delikatna stalowka F.' },
-    { id: 'PEN-003', title: 'Pioro Wieczne TWSBI Eco', price: 219.99, categoryId: '3', categoryName: 'Piora wieczne', icon: '\u{1F58B}\u{FE0F}', sku: 'PEN-TWS-01', image: 'https://placehold.co/400x400/333333/ffffff?text=TWSBI+Eco', description: 'Pioro tlokowe TWSBI Eco z przezroczystym korpusem. Duzy zbiornik atramentu, plynne pisanie.' },
-    { id: 'PEN-004', title: 'Pioro Wieczne Parker Sonnet', price: 459.99, categoryId: '3', categoryName: 'Piora wieczne', icon: '\u{1F58B}\u{FE0F}', sku: 'PEN-PRK-01', image: 'https://placehold.co/400x400/333333/ffffff?text=Parker+Sonnet', description: 'Eleganckie pioro wieczne Parker Sonnet ze zlotym stalowka 18K. Idealny prezent dla milosnika pisania.' },
-    { id: 'PAP-001', title: 'Blok do Kaligrafii A4 100 ark.', price: 44.99, categoryId: '4', categoryName: 'Papier i Pergaminy', icon: '\u{1F4C4}', sku: 'PAP-BLK-A4', image: 'https://placehold.co/400x400/f5f0e6/2c1810?text=Blok+A4', description: 'Blok papieru do kaligrafii formatu A4, 100 arkuszy. Gladka powierzchnia, gramatura 90g/m2.' },
-    { id: 'PAP-002', title: 'Pergamin Naturalny A3', price: 19.99, categoryId: '4', categoryName: 'Papier i Pergaminy', icon: '\u{1F4DC}', sku: 'PAP-PRG-A3', image: 'https://placehold.co/400x400/f5f0e6/2c1810?text=Pergamin+A3', description: 'Autentyczny pergamin formatu A3. Naturalny kolor, idealna powierzchnia do kaligrafii.' },
-    { id: 'PAP-003', title: 'Papier Bawelniany Kremowy 25 ark.', price: 54.99, categoryId: '4', categoryName: 'Papier i Pergaminy', icon: '\u{1F4C3}', sku: 'PAP-COT-25', image: 'https://placehold.co/400x400/f5f0e6/2c1810?text=Papier+Bawelniany', description: 'Luksusowy papier bawelniany w kolorze kremowym. 25 arkuszy, gramatura 120g/m2. Idealny do zaprosen.' },
-    { id: 'PAP-004', title: 'Zwoj Pergaminu 5m', price: 79.99, categoryId: '4', categoryName: 'Papier i Pergaminy', icon: '\u{1F4DC}', sku: 'PAP-ZWJ-5M', image: 'https://placehold.co/400x400/f5f0e6/2c1810?text=Zwoj+Pergaminu', description: 'Zwoj pergaminu o dlugosci 5 metrow. Imitacja starozytnego pergaminu, idealny do dlugich projektow.' },
-    { id: 'SET-001', title: 'Zestaw Startowy do Kaligrafii', price: 129.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne', icon: '\u{1F381}', sku: 'SET-STR-01', image: 'https://placehold.co/400x400/c9a84c/2c1810?text=Zestaw+Startowy', description: 'Kompletny zestaw dla poczatkujacych: 3 stalowki, uchwyt, atrament czarny, blok A5. Idealny na prezent.' },
-    { id: 'SET-002', title: 'Zestaw Profesjonalny Copperplate', price: 249.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne', icon: '\u{1F381}', sku: 'SET-PRO-01', image: 'https://placehold.co/400x400/c9a84c/2c1810?text=Zestaw+Pro', description: 'Zestaw profesjonalny do stylu copperplate: 5 stalowek, 2 uchwyty, 3 atramenty, papier premium.' },
-    { id: 'SET-003', title: 'Zestaw Pioro + Atrament Gift Box', price: 189.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne', icon: '\u{1F381}', sku: 'SET-GFT-01', image: 'https://placehold.co/400x400/c9a84c/2c1810?text=Gift+Box', description: 'Elegancki zestaw prezentowy: pioro wieczne i atrament w ozdobnym pudelku. Idealny prezent.' },
-    { id: 'SET-004', title: 'Zestaw Brush Lettering', price: 99.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne', icon: '\u{1F381}', sku: 'SET-BRL-01', image: 'https://placehold.co/400x400/c9a84c/2c1810?text=Brush+Lettering', description: 'Zestaw do brush letteringu: 6 brush penow, blok papieru, poradnik. Swietny na poczatek przygody z liternictwem.' }
+    { id: 'INK-001', title: 'Atrament Czarny Klasyczny 50ml', price: 29.99, categoryId: '1', categoryName: 'Atramenty', icon: '\u{1F5A4}', sku: 'ATR-BLK-50', image: 'https://placehold.co/400x400/1a1a1a/ffffff.png', description: 'Klasyczny czarny atrament do kaligrafii. Doskonala plynnosc, gleboka czern. Idealny do codziennej pracy z piorem.' },
+    { id: 'INK-002', title: 'Atrament Sepia Vintage 30ml', price: 34.99, categoryId: '1', categoryName: 'Atramenty', icon: '\u{1F90E}', sku: 'ATR-SEP-30', image: 'https://placehold.co/400x400/8B4513/ffffff.png', description: 'Atrament w kolorze sepii, inspirowany historycznymi dokumentami. Nadaje listom i kaligrafii antyczny charakter.' },
+    { id: 'INK-003', title: 'Atrament Blekitny Niebo 50ml', price: 32.99, categoryId: '1', categoryName: 'Atramenty', icon: '\u{1F499}', sku: 'ATR-BLU-50', image: 'https://placehold.co/400x400/4682B4/ffffff.png', description: 'Delikatny blekitny atrament o subtelnym odcieniu nieba. Swietny do listow i zaprosen.' },
+    { id: 'INK-004', title: 'Zestaw Atramentow 6 kolorow', price: 89.99, categoryId: '1', categoryName: 'Atramenty', icon: '\u{1F3A8}', sku: 'ATR-SET-6', image: 'https://placehold.co/400x400/8b6914/ffffff.png', description: 'Zestaw szesciu atramentow w roznych kolorach: czarny, sepia, blekitny, zielony, fioletowy, czerwony.' },
+    { id: 'NIB-001', title: 'Stalowka Nikko G', price: 12.99, categoryId: '2', categoryName: 'Stalowki', icon: '\u{2712}\u{FE0F}', sku: 'NIB-NKG-01', image: 'https://placehold.co/400x400/2c1810/ffffff.png', description: 'Popularna stalowka Nikko G, idealna dla poczatkujacych. Elastyczna i latwa w uzyciu.' },
+    { id: 'NIB-002', title: 'Stalowka Brause Steno Blue Pumpkin', price: 8.99, categoryId: '2', categoryName: 'Stalowki', icon: '\u{2712}\u{FE0F}', sku: 'NIB-BRS-01', image: 'https://placehold.co/400x400/3d2518/ffffff.png', description: 'Stalowka Brause o sredniej elastycznosci. Swietna do stylu italik i copperplate.' },
+    { id: 'NIB-003', title: 'Stalowka Hunt 101', price: 14.99, categoryId: '2', categoryName: 'Stalowki', icon: '\u{2712}\u{FE0F}', sku: 'NIB-HNT-01', image: 'https://placehold.co/400x400/4a3228/ffffff.png', description: 'Profesjonalna stalowka Hunt 101 z duzym zbiornikiem atramentu. Idealna do dlugich sesji kaligraficznych.' },
+    { id: 'NIB-004', title: 'Zestaw stalowek 10 szt.', price: 49.99, categoryId: '2', categoryName: 'Stalowki', icon: '\u{2712}\u{FE0F}', sku: 'NIB-SET-10', image: 'https://placehold.co/400x400/5c3d2e/ffffff.png', description: 'Zestaw dziesieciu roznych stalowek do kaligrafii. Zawiera stalowki pointed pen i broad edge.' },
+    { id: 'PEN-001', title: 'Pioro Wieczne Lamy Safari', price: 149.99, categoryId: '3', categoryName: 'Piora wieczne', icon: '\u{1F58B}\u{FE0F}', sku: 'PEN-LAM-01', image: 'https://placehold.co/400x400/333333/ffffff.png', description: 'Kultowe pioro wieczne Lamy Safari. Ergonomiczny chwyt, wymienne naboje. Dostepne w kolorze czarnym.' },
+    { id: 'PEN-002', title: 'Pioro Wieczne Platinum Preppy', price: 39.99, categoryId: '3', categoryName: 'Piora wieczne', icon: '\u{1F58B}\u{FE0F}', sku: 'PEN-PLT-01', image: 'https://placehold.co/400x400/444444/ffffff.png', description: 'Niedrogie pioro wieczne Platinum Preppy. Swietne dla poczatkujacych. Delikatna stalowka F.' },
+    { id: 'PEN-003', title: 'Pioro Wieczne TWSBI Eco', price: 219.99, categoryId: '3', categoryName: 'Piora wieczne', icon: '\u{1F58B}\u{FE0F}', sku: 'PEN-TWS-01', image: 'https://placehold.co/400x400/555555/ffffff.png', description: 'Pioro tlokowe TWSBI Eco z przezroczystym korpusem. Duzy zbiornik atramentu, plynne pisanie.' },
+    { id: 'PEN-004', title: 'Pioro Wieczne Parker Sonnet', price: 459.99, categoryId: '3', categoryName: 'Piora wieczne', icon: '\u{1F58B}\u{FE0F}', sku: 'PEN-PRK-01', image: 'https://placehold.co/400x400/666666/ffffff.png', description: 'Eleganckie pioro wieczne Parker Sonnet ze zlotym stalowka 18K. Idealny prezent dla milosnika pisania.' },
+    { id: 'PAP-001', title: 'Blok do Kaligrafii A4 100 ark.', price: 44.99, categoryId: '4', categoryName: 'Papier i Pergaminy', icon: '\u{1F4C4}', sku: 'PAP-BLK-A4', image: 'https://placehold.co/400x400/f5f0e6/2c1810.png', description: 'Blok papieru do kaligrafii formatu A4, 100 arkuszy. Gladka powierzchnia, gramatura 90g/m2.' },
+    { id: 'PAP-002', title: 'Pergamin Naturalny A3', price: 19.99, categoryId: '4', categoryName: 'Papier i Pergaminy', icon: '\u{1F4DC}', sku: 'PAP-PRG-A3', image: 'https://placehold.co/400x400/ebe3d4/2c1810.png', description: 'Autentyczny pergamin formatu A3. Naturalny kolor, idealna powierzchnia do kaligrafii.' },
+    { id: 'PAP-003', title: 'Papier Bawelniany Kremowy 25 ark.', price: 54.99, categoryId: '4', categoryName: 'Papier i Pergaminy', icon: '\u{1F4C3}', sku: 'PAP-COT-25', image: 'https://placehold.co/400x400/e0d5c7/2c1810.png', description: 'Luksusowy papier bawelniany w kolorze kremowym. 25 arkuszy, gramatura 120g/m2. Idealny do zaprosen.' },
+    { id: 'PAP-004', title: 'Zwoj Pergaminu 5m', price: 79.99, categoryId: '4', categoryName: 'Papier i Pergaminy', icon: '\u{1F4DC}', sku: 'PAP-ZWJ-5M', image: 'https://placehold.co/400x400/d4c5b0/2c1810.png', description: 'Zwoj pergaminu o dlugosci 5 metrow. Imitacja starozytnego pergaminu, idealny do dlugich projektow.' },
+    { id: 'SET-001', title: 'Zestaw Startowy do Kaligrafii', price: 129.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne', icon: '\u{1F381}', sku: 'SET-STR-01', image: 'https://placehold.co/400x400/c9a84c/2c1810.png', description: 'Kompletny zestaw dla poczatkujacych: 3 stalowki, uchwyt, atrament czarny, blok A5. Idealny na prezent.' },
+    { id: 'SET-002', title: 'Zestaw Profesjonalny Copperplate', price: 249.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne', icon: '\u{1F381}', sku: 'SET-PRO-01', image: 'https://placehold.co/400x400/d4b35a/2c1810.png', description: 'Zestaw profesjonalny do stylu copperplate: 5 stalowek, 2 uchwyty, 3 atramenty, papier premium.' },
+    { id: 'SET-003', title: 'Zestaw Pioro + Atrament Gift Box', price: 189.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne', icon: '\u{1F381}', sku: 'SET-GFT-01', image: 'https://placehold.co/400x400/b8952e/ffffff.png', description: 'Elegancki zestaw prezentowy: pioro wieczne i atrament w ozdobnym pudelku. Idealny prezent.' },
+    { id: 'SET-004', title: 'Zestaw Brush Lettering', price: 99.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne', icon: '\u{1F381}', sku: 'SET-BRL-01', image: 'https://placehold.co/400x400/a68a3c/ffffff.png', description: 'Zestaw do brush letteringu: 6 brush penow, blok papieru, poradnik. Swietny na poczatek przygody z liternictwem.' }
 ];
 
 // =============================================
@@ -166,8 +166,8 @@ function edroneProductView(product) {
     _edrone.action_type = 'product_view';
     _edrone.product_ids = product.id;
     _edrone.product_titles = encodeURIComponent(product.title);
-    _edrone.product_images = encodeURIComponent(product.image);
-    _edrone.product_urls = encodeURIComponent(STORE_URL + 'product.html?id=' + product.id);
+    _edrone.product_images = product.image;
+    _edrone.product_urls = STORE_URL + 'product.html?id=' + product.id;
     _edrone.product_skus = product.sku;
     _edrone.product_category_ids = product.categoryId;
     _edrone.product_category_names = encodeURIComponent(product.categoryName);
@@ -188,8 +188,8 @@ function edroneAddToCart(product) {
     _edrone.action_type = 'add_to_cart';
     _edrone.product_ids = product.id;
     _edrone.product_titles = encodeURIComponent(product.title);
-    _edrone.product_images = encodeURIComponent(product.image);
-    _edrone.product_urls = encodeURIComponent(STORE_URL + 'product.html?id=' + product.id);
+    _edrone.product_images = product.image;
+    _edrone.product_urls = STORE_URL + 'product.html?id=' + product.id;
     _edrone.product_skus = product.sku;
     _edrone.product_category_ids = product.categoryId;
     _edrone.product_category_names = encodeURIComponent(product.categoryName);
@@ -215,8 +215,8 @@ function edroneOrder(orderId, cartItems) {
     _edrone.product_ids = cartItems.map(function(i) { return i.id; }).join('|');
     _edrone.product_skus = cartItems.map(function(i) { return i.sku; }).join('|');
     _edrone.product_titles = cartItems.map(function(i) { return encodeURIComponent(i.title); }).join('|');
-    _edrone.product_images = cartItems.map(function(i) { return encodeURIComponent(i.image); }).join('|');
-    _edrone.product_urls = cartItems.map(function(i) { return encodeURIComponent(STORE_URL + 'product.html?id=' + i.id); }).join('|');
+    _edrone.product_images = cartItems.map(function(i) { return i.image; }).join('|');
+    _edrone.product_urls = cartItems.map(function(i) { return STORE_URL + 'product.html?id=' + i.id; }).join('|');
     _edrone.product_counts = cartItems.map(function(i) { return i.qty; }).join('|');
     _edrone.product_category_ids = cartItems.map(function(i) { return i.categoryId; }).join('|');
     _edrone.product_category_names = cartItems.map(function(i) { return encodeURIComponent(i.categoryName); }).join('|');
@@ -301,8 +301,8 @@ function simulateEvent() {
             _edrone.action_type = 'product_view';
             _edrone.product_ids = p.id;
             _edrone.product_titles = encodeURIComponent(p.title);
-            _edrone.product_images = encodeURIComponent(p.image);
-            _edrone.product_urls = encodeURIComponent(STORE_URL + 'product.html?id=' + p.id);
+            _edrone.product_images = p.image;
+            _edrone.product_urls = STORE_URL + 'product.html?id=' + p.id;
             _edrone.product_skus = p.sku;
             _edrone.product_category_ids = p.categoryId;
             _edrone.product_category_names = encodeURIComponent(p.categoryName);
@@ -323,8 +323,8 @@ function simulateEvent() {
             _edrone.action_type = 'add_to_cart';
             _edrone.product_ids = p2.id;
             _edrone.product_titles = encodeURIComponent(p2.title);
-            _edrone.product_images = encodeURIComponent(p2.image);
-            _edrone.product_urls = encodeURIComponent(STORE_URL + 'product.html?id=' + p2.id);
+            _edrone.product_images = p2.image;
+            _edrone.product_urls = STORE_URL + 'product.html?id=' + p2.id;
             _edrone.product_skus = p2.sku;
             _edrone.product_category_ids = p2.categoryId;
             _edrone.product_category_names = encodeURIComponent(p2.categoryName);
@@ -365,8 +365,8 @@ function simulateEvent() {
             _edrone.product_ids = orderProducts.map(function(p) { return p.id; }).join('|');
             _edrone.product_skus = orderProducts.map(function(p) { return p.sku; }).join('|');
             _edrone.product_titles = orderProducts.map(function(p) { return encodeURIComponent(p.title); }).join('|');
-            _edrone.product_images = orderProducts.map(function(p) { return encodeURIComponent(p.image); }).join('|');
-            _edrone.product_urls = orderProducts.map(function(p) { return encodeURIComponent(STORE_URL + 'product.html?id=' + p.id); }).join('|');
+            _edrone.product_images = orderProducts.map(function(p) { return p.image; }).join('|');
+            _edrone.product_urls = orderProducts.map(function(p) { return STORE_URL + 'product.html?id=' + p.id; }).join('|');
             _edrone.product_counts = orderProducts.map(function(p) { return p.qty; }).join('|');
             _edrone.product_category_ids = orderProducts.map(function(p) { return p.categoryId; }).join('|');
             _edrone.product_category_names = orderProducts.map(function(p) { return encodeURIComponent(p.categoryName); }).join('|');
