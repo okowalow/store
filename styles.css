@@ -178,6 +178,7 @@ main {
     font-size: 64px;
 }
 .product-image a { text-decoration: none; display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; }
 .product-info { padding: 20px; }
 .product-category {
     font-size: 12px;
@@ -226,7 +227,9 @@ main {
     justify-content: center;
     font-size: 120px;
     min-height: 400px;
+    overflow: hidden;
 }
+.product-detail-image img { width: 100%; height: 100%; object-fit: cover; }
 .product-detail-info h1 { font-size: 32px; margin-bottom: 10px; }
 .product-detail-info .product-category { margin-bottom: 15px; }
 .product-detail-info .product-price { font-size: 28px; margin-bottom: 20px; }
