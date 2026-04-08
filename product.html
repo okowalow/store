@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atramento — Sklep z Atramentami i Przyborami do Kaligrafii</title>
+    <title>Produkt — Atramento</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,9 +12,9 @@
     <div class="header-top">
         <div class="logo"><a href="index.html"><span>Atramento</span></a></div>
         <nav>
-            <a href="index.html" class="active">Strona Glowna</a>
+            <a href="index.html">Strona Glowna</a>
             <a href="categories.html">Kategorie</a>
-            <a href="products.html">Produkty</a>
+            <a href="products.html" class="active">Produkty</a>
             <a href="contact.html">Kontakt</a>
         </nav>
         <div class="cart-icon" onclick="toggleCart()">&#128722;<div class="cart-count" id="cart-count">0</div></div>
@@ -84,50 +84,53 @@
 </script>
 <script src="shared.js"></script>
 <script>
+var productQty = 1;
+function changeQty(delta) {
+    productQty = Math.max(1, productQty + delta);
+    document.getElementById('product-qty').textContent = productQty;
+}
+function addProductToCart(productId) {
+    addToCart(productId, productQty);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     var app = document.getElementById('app');
-    var featured = products.slice(0, 4);
+    var params = new URLSearchParams(window.location.search);
+    var productId = params.get('id');
+    var p = products.find(function(pr) { return pr.id === productId; });
+
+    if (!p) {
+        window.location.href = 'products.html';
+        return;
+    }
+
+    document.title = p.title + ' — Atramento';
 
     app.innerHTML =
-        '<div class="hero">' +
-            '<h1>Sztuka Pisania</h1>' +
-            '<p>Odkryj swiat kaligrafii z najlepszymi atramentami, stalowkami i przyborami do pisania.</p>' +
-            '<a href="products.html" class="hero-btn">Zobacz produkty</a>' +
+        '<div class="breadcrumb">' +
+            '<a href="index.html">Strona glowna</a> / ' +
+            '<a href="products.html?cat=' + p.categoryId + '">' + p.categoryName + '</a> / ' +
+            p.title +
         '</div>' +
-        '<h2 class="section-title">Kategorie</h2>' +
-        '<div class="categories-grid">' +
-            categories.map(function(c) {
-                return '<a class="category-card" href="products.html?cat=' + c.id + '">' +
-                    '<div class="category-icon">' + c.icon + '</div>' +
-                    '<h3>' + c.name + '</h3>' +
-                    '<p>' + products.filter(function(p) { return p.categoryId === c.id; }).length + ' produktow</p>' +
-                '</a>';
-            }).join('') +
-        '</div>' +
-        '<h2 class="section-title">Polecane produkty</h2>' +
-        '<div class="products-grid">' +
-            featured.map(function(p) { return productCardHTML(p); }).join('') +
-        '</div>' +
-        '<div class="newsletter">' +
-            '<h2>Newsletter</h2>' +
-            '<p>Zapisz sie, aby otrzymywac informacje o nowosciach i promocjach.</p>' +
-            '<div class="newsletter-form">' +
-                '<input type="email" id="newsletter-email" placeholder="Twoj adres email..." />' +
-                '<button class="btn btn-accent" onclick="subscribeNL()">Zapisz sie</button>' +
+        '<div class="product-detail">' +
+            '<div class="product-detail-image">' + p.icon + '</div>' +
+            '<div class="product-detail-info">' +
+                '<div class="product-category">' + p.categoryName + '</div>' +
+                '<h1>' + p.title + '</h1>' +
+                '<div class="product-price">' + p.price.toFixed(2) + ' zl</div>' +
+                '<div class="description">' + p.description + '</div>' +
+                '<div class="quantity-selector">' +
+                    '<span>Ilosc:</span>' +
+                    '<button onclick="changeQty(-1)">-</button>' +
+                    '<span id="product-qty">1</span>' +
+                    '<button onclick="changeQty(1)">+</button>' +
+                '</div>' +
+                '<button class="btn btn-accent" onclick="addProductToCart(\'' + p.id + '\')" style="padding:14px 40px;font-size:16px;">Dodaj do koszyka</button>' +
             '</div>' +
         '</div>';
 
-    edroneHomepageView();
+    edroneProductView(p);
 });
-
-function subscribeNL() {
-    var emailEl = document.getElementById('newsletter-email');
-    var email = emailEl.value.trim();
-    if (!email || email.indexOf('@') === -1) { showToast('Prosze podac poprawny email'); return; }
-    edroneSubscribe(email, '', 'Newsletter Footer');
-    emailEl.value = '';
-    showToast('Zapisano do newslettera!');
-}
 </script>
 </body>
 </html>

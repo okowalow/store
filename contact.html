@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atramento — Sklep z Atramentami i Przyborami do Kaligrafii</title>
+    <title>Kontakt — Atramento</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,10 +12,10 @@
     <div class="header-top">
         <div class="logo"><a href="index.html"><span>Atramento</span></a></div>
         <nav>
-            <a href="index.html" class="active">Strona Glowna</a>
+            <a href="index.html">Strona Glowna</a>
             <a href="categories.html">Kategorie</a>
             <a href="products.html">Produkty</a>
-            <a href="contact.html">Kontakt</a>
+            <a href="contact.html" class="active">Kontakt</a>
         </nav>
         <div class="cart-icon" onclick="toggleCart()">&#128722;<div class="cart-count" id="cart-count">0</div></div>
     </div>
@@ -33,7 +33,38 @@
 
 <div class="toast" id="toast"></div>
 
-<main id="app"></main>
+<main>
+    <div class="breadcrumb"><a href="index.html">Strona glowna</a> / Kontakt</div>
+    <h2 class="section-title">Kontakt</h2>
+    <div class="contact-container">
+        <p style="text-align:center; color: var(--text-light); margin-bottom: 30px;">
+            Masz pytania? Napisz do nas, a odpowiemy najszybciej jak to mozliwe.
+        </p>
+        <div class="form-group">
+            <label>Imie i nazwisko</label>
+            <input type="text" id="contact-name" placeholder="Jan Kowalski" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="contact-email" placeholder="jan@kowalski.pl" />
+        </div>
+        <div class="form-group">
+            <label>Temat</label>
+            <select id="contact-subject">
+                <option>Pytanie o produkt</option>
+                <option>Zamowienie</option>
+                <option>Reklamacja</option>
+                <option>Wspolpraca</option>
+                <option>Inne</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Wiadomosc</label>
+            <textarea id="contact-message" placeholder="Twoja wiadomosc..."></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="submitContact()" style="padding: 14px;">Wyslij wiadomosc</button>
+    </div>
+</main>
 
 <footer>
     <div class="footer-content">
@@ -84,49 +115,12 @@
 </script>
 <script src="shared.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var app = document.getElementById('app');
-    var featured = products.slice(0, 4);
-
-    app.innerHTML =
-        '<div class="hero">' +
-            '<h1>Sztuka Pisania</h1>' +
-            '<p>Odkryj swiat kaligrafii z najlepszymi atramentami, stalowkami i przyborami do pisania.</p>' +
-            '<a href="products.html" class="hero-btn">Zobacz produkty</a>' +
-        '</div>' +
-        '<h2 class="section-title">Kategorie</h2>' +
-        '<div class="categories-grid">' +
-            categories.map(function(c) {
-                return '<a class="category-card" href="products.html?cat=' + c.id + '">' +
-                    '<div class="category-icon">' + c.icon + '</div>' +
-                    '<h3>' + c.name + '</h3>' +
-                    '<p>' + products.filter(function(p) { return p.categoryId === c.id; }).length + ' produktow</p>' +
-                '</a>';
-            }).join('') +
-        '</div>' +
-        '<h2 class="section-title">Polecane produkty</h2>' +
-        '<div class="products-grid">' +
-            featured.map(function(p) { return productCardHTML(p); }).join('') +
-        '</div>' +
-        '<div class="newsletter">' +
-            '<h2>Newsletter</h2>' +
-            '<p>Zapisz sie, aby otrzymywac informacje o nowosciach i promocjach.</p>' +
-            '<div class="newsletter-form">' +
-                '<input type="email" id="newsletter-email" placeholder="Twoj adres email..." />' +
-                '<button class="btn btn-accent" onclick="subscribeNL()">Zapisz sie</button>' +
-            '</div>' +
-        '</div>';
-
-    edroneHomepageView();
-});
-
-function subscribeNL() {
-    var emailEl = document.getElementById('newsletter-email');
-    var email = emailEl.value.trim();
-    if (!email || email.indexOf('@') === -1) { showToast('Prosze podac poprawny email'); return; }
-    edroneSubscribe(email, '', 'Newsletter Footer');
-    emailEl.value = '';
-    showToast('Zapisano do newslettera!');
+function submitContact() {
+    var name = document.getElementById('contact-name').value;
+    var email = document.getElementById('contact-email').value;
+    if (!email) { showToast('Prosze podac adres email'); return; }
+    showToast('Wiadomosc wyslana! Dziekujemy.');
+    if (email) edroneSubscribe(email, name, 'Contact Form');
 }
 </script>
 </body>

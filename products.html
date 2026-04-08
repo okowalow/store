@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atramento — Sklep z Atramentami i Przyborami do Kaligrafii</title>
+    <title>Produkty — Atramento</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,9 +12,9 @@
     <div class="header-top">
         <div class="logo"><a href="index.html"><span>Atramento</span></a></div>
         <nav>
-            <a href="index.html" class="active">Strona Glowna</a>
+            <a href="index.html">Strona Glowna</a>
             <a href="categories.html">Kategorie</a>
-            <a href="products.html">Produkty</a>
+            <a href="products.html" class="active">Produkty</a>
             <a href="contact.html">Kontakt</a>
         </nav>
         <div class="cart-icon" onclick="toggleCart()">&#128722;<div class="cart-count" id="cart-count">0</div></div>
@@ -86,48 +86,45 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var app = document.getElementById('app');
-    var featured = products.slice(0, 4);
+    var params = new URLSearchParams(window.location.search);
+    var filterCategoryId = params.get('cat');
+
+    var filtered = filterCategoryId
+        ? products.filter(function(p) { return p.categoryId === filterCategoryId; })
+        : products;
+
+    var catName = 'Wszystkie produkty';
+    if (filterCategoryId) {
+        var cat = categories.find(function(c) { return c.id === filterCategoryId; });
+        if (cat) catName = cat.name;
+    }
+
+    var breadcrumb = '<div class="breadcrumb"><a href="index.html">Strona glowna</a> / ';
+    if (filterCategoryId) {
+        breadcrumb += '<a href="categories.html">Kategorie</a> / ' + catName;
+    } else {
+        breadcrumb += 'Produkty';
+    }
+    breadcrumb += '</div>';
 
     app.innerHTML =
-        '<div class="hero">' +
-            '<h1>Sztuka Pisania</h1>' +
-            '<p>Odkryj swiat kaligrafii z najlepszymi atramentami, stalowkami i przyborami do pisania.</p>' +
-            '<a href="products.html" class="hero-btn">Zobacz produkty</a>' +
-        '</div>' +
-        '<h2 class="section-title">Kategorie</h2>' +
-        '<div class="categories-grid">' +
+        breadcrumb +
+        '<h2 class="section-title">' + catName + '</h2>' +
+        '<div class="filter-bar">' +
+            '<a class="filter-btn ' + (!filterCategoryId ? 'active' : '') + '" href="products.html">Wszystkie</a>' +
             categories.map(function(c) {
-                return '<a class="category-card" href="products.html?cat=' + c.id + '">' +
-                    '<div class="category-icon">' + c.icon + '</div>' +
-                    '<h3>' + c.name + '</h3>' +
-                    '<p>' + products.filter(function(p) { return p.categoryId === c.id; }).length + ' produktow</p>' +
-                '</a>';
+                return '<a class="filter-btn ' + (filterCategoryId === c.id ? 'active' : '') + '" href="products.html?cat=' + c.id + '">' + c.name + '</a>';
             }).join('') +
         '</div>' +
-        '<h2 class="section-title">Polecane produkty</h2>' +
         '<div class="products-grid">' +
-            featured.map(function(p) { return productCardHTML(p); }).join('') +
-        '</div>' +
-        '<div class="newsletter">' +
-            '<h2>Newsletter</h2>' +
-            '<p>Zapisz sie, aby otrzymywac informacje o nowosciach i promocjach.</p>' +
-            '<div class="newsletter-form">' +
-                '<input type="email" id="newsletter-email" placeholder="Twoj adres email..." />' +
-                '<button class="btn btn-accent" onclick="subscribeNL()">Zapisz sie</button>' +
-            '</div>' +
+            filtered.map(function(p) { return productCardHTML(p); }).join('') +
         '</div>';
 
-    edroneHomepageView();
+    if (filterCategoryId) {
+        var cat = categories.find(function(c) { return c.id === filterCategoryId; });
+        if (cat) edroneCategoryView(cat.id, cat.name);
+    }
 });
-
-function subscribeNL() {
-    var emailEl = document.getElementById('newsletter-email');
-    var email = emailEl.value.trim();
-    if (!email || email.indexOf('@') === -1) { showToast('Prosze podac poprawny email'); return; }
-    edroneSubscribe(email, '', 'Newsletter Footer');
-    emailEl.value = '';
-    showToast('Zapisano do newslettera!');
-}
 </script>
 </body>
 </html>
