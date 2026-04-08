@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+<channel>
+<title>Atramento - Sklep z Atramentami i Przyborami do Kaligrafii</title>
+<link>https://okowalow.github.io/store/</link>
+<description>Sklep z atramentami i przyborami do kaligrafii</description>
+<item>
+  <g:id>INK-101</g:id>
+  <title>Atrament Czarny Klasyczny 50ml</title>
+  <link>https://okowalow.github.io/store/product.html?id=INK-101</link>
+  <g:image_link>https://okowalow.github.io/store/images/INK-001.jpg</g:image_link>
+  <g:price>29.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Atramenty</g:product_type>
+  <description>Klasyczny czarny atrament do kaligrafii. Doskonala plynnosc, gleboka czern.</description>
+</item>
+<item>
+  <g:id>INK-102</g:id>
+  <title>Atrament Sepia Vintage 30ml</title>
+  <link>https://okowalow.github.io/store/product.html?id=INK-102</link>
+  <g:image_link>https://okowalow.github.io/store/images/INK-002.jpg</g:image_link>
+  <g:price>34.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Atramenty</g:product_type>
+  <description>Atrament w kolorze sepii, inspirowany historycznymi dokumentami.</description>
+</item>
+<item>
+  <g:id>INK-103</g:id>
+  <title>Atrament Blekitny Niebo 50ml</title>
+  <link>https://okowalow.github.io/store/product.html?id=INK-103</link>
+  <g:image_link>https://okowalow.github.io/store/images/INK-003.jpg</g:image_link>
+  <g:price>32.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Atramenty</g:product_type>
+  <description>Delikatny blekitny atrament o subtelnym odcieniu nieba.</description>
+</item>
+<item>
+  <g:id>INK-104</g:id>
+  <title>Zestaw Atramentow 6 kolorow</title>
+  <link>https://okowalow.github.io/store/product.html?id=INK-104</link>
+  <g:image_link>https://okowalow.github.io/store/images/INK-004.jpg</g:image_link>
+  <g:price>89.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Atramenty</g:product_type>
+  <description>Zestaw szesciu atramentow w roznych kolorach.</description>
+</item>
+<item>
+  <g:id>NIB-101</g:id>
+  <title>Stalowka Nikko G</title>
+  <link>https://okowalow.github.io/store/product.html?id=NIB-101</link>
+  <g:image_link>https://okowalow.github.io/store/images/NIB-001.jpg</g:image_link>
+  <g:price>12.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Nikko</g:brand>
+  <g:product_type>Stalowki</g:product_type>
+  <description>Popularna stalowka Nikko G, idealna dla poczatkujacych.</description>
+</item>
+<item>
+  <g:id>NIB-102</g:id>
+  <title>Stalowka Brause Steno Blue Pumpkin</title>
+  <link>https://okowalow.github.io/store/product.html?id=NIB-102</link>
+  <g:image_link>https://okowalow.github.io/store/images/NIB-002.jpg</g:image_link>
+  <g:price>8.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Brause</g:brand>
+  <g:product_type>Stalowki</g:product_type>
+  <description>Stalowka Brause o sredniej elastycznosci.</description>
+</item>
+<item>
+  <g:id>NIB-103</g:id>
+  <title>Stalowka Hunt 101</title>
+  <link>https://okowalow.github.io/store/product.html?id=NIB-103</link>
+  <g:image_link>https://okowalow.github.io/store/images/NIB-003.jpg</g:image_link>
+  <g:price>14.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Hunt</g:brand>
+  <g:product_type>Stalowki</g:product_type>
+  <description>Profesjonalna stalowka Hunt 101 z duzym zbiornikiem atramentu.</description>
+</item>
+<item>
+  <g:id>NIB-104</g:id>
+  <title>Zestaw stalowek 10 szt.</title>
+  <link>https://okowalow.github.io/store/product.html?id=NIB-104</link>
+  <g:image_link>https://okowalow.github.io/store/images/NIB-004.jpg</g:image_link>
+  <g:price>49.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Stalowki</g:product_type>
+  <description>Zestaw dziesieciu roznych stalowek do kaligrafii.</description>
+</item>
+<item>
+  <g:id>PEN-101</g:id>
+  <title>Pioro Wieczne Lamy Safari</title>
+  <link>https://okowalow.github.io/store/product.html?id=PEN-101</link>
+  <g:image_link>https://okowalow.github.io/store/images/PEN-001.jpg</g:image_link>
+  <g:price>149.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Lamy</g:brand>
+  <g:product_type>Piora wieczne</g:product_type>
+  <description>Kultowe pioro wieczne Lamy Safari. Ergonomiczny chwyt, wymienne naboje.</description>
+</item>
+<item>
+  <g:id>PEN-102</g:id>
+  <title>Pioro Wieczne Platinum Preppy</title>
+  <link>https://okowalow.github.io/store/product.html?id=PEN-102</link>
+  <g:image_link>https://okowalow.github.io/store/images/PEN-002.jpg</g:image_link>
+  <g:price>39.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Platinum</g:brand>
+  <g:product_type>Piora wieczne</g:product_type>
+  <description>Niedrogie pioro wieczne Platinum Preppy. Swietne dla poczatkujacych.</description>
+</item>
+<item>
+  <g:id>PEN-103</g:id>
+  <title>Pioro Wieczne TWSBI Eco</title>
+  <link>https://okowalow.github.io/store/product.html?id=PEN-103</link>
+  <g:image_link>https://okowalow.github.io/store/images/PEN-003.jpg</g:image_link>
+  <g:price>219.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>TWSBI</g:brand>
+  <g:product_type>Piora wieczne</g:product_type>
+  <description>Pioro tlokowe TWSBI Eco z przezroczystym korpusem.</description>
+</item>
+<item>
+  <g:id>PEN-104</g:id>
+  <title>Pioro Wieczne Parker Sonnet</title>
+  <link>https://okowalow.github.io/store/product.html?id=PEN-104</link>
+  <g:image_link>https://okowalow.github.io/store/images/PEN-004.jpg</g:image_link>
+  <g:price>459.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Parker</g:brand>
+  <g:product_type>Piora wieczne</g:product_type>
+  <description>Eleganckie pioro wieczne Parker Sonnet ze zlotym stalowka 18K.</description>
+</item>
+<item>
+  <g:id>PAP-101</g:id>
+  <title>Blok do Kaligrafii A4 100 ark.</title>
+  <link>https://okowalow.github.io/store/product.html?id=PAP-101</link>
+  <g:image_link>https://okowalow.github.io/store/images/PAP-001.jpg</g:image_link>
+  <g:price>44.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Papier i Pergaminy</g:product_type>
+  <description>Blok papieru do kaligrafii formatu A4, 100 arkuszy.</description>
+</item>
+<item>
+  <g:id>PAP-102</g:id>
+  <title>Pergamin Naturalny A3</title>
+  <link>https://okowalow.github.io/store/product.html?id=PAP-102</link>
+  <g:image_link>https://okowalow.github.io/store/images/PAP-002.jpg</g:image_link>
+  <g:price>19.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Papier i Pergaminy</g:product_type>
+  <description>Autentyczny pergamin formatu A3. Naturalny kolor.</description>
+</item>
+<item>
+  <g:id>PAP-103</g:id>
+  <title>Papier Bawelniany Kremowy 25 ark.</title>
+  <link>https://okowalow.github.io/store/product.html?id=PAP-103</link>
+  <g:image_link>https://okowalow.github.io/store/images/PAP-003.jpg</g:image_link>
+  <g:price>54.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Papier i Pergaminy</g:product_type>
+  <description>Luksusowy papier bawelniany w kolorze kremowym. 25 arkuszy.</description>
+</item>
+<item>
+  <g:id>PAP-104</g:id>
+  <title>Zwoj Pergaminu 5m</title>
+  <link>https://okowalow.github.io/store/product.html?id=PAP-104</link>
+  <g:image_link>https://okowalow.github.io/store/images/PAP-004.jpg</g:image_link>
+  <g:price>79.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Papier i Pergaminy</g:product_type>
+  <description>Zwoj pergaminu o dlugosci 5 metrow.</description>
+</item>
+<item>
+  <g:id>SET-101</g:id>
+  <title>Zestaw Startowy do Kaligrafii</title>
+  <link>https://okowalow.github.io/store/product.html?id=SET-101</link>
+  <g:image_link>https://okowalow.github.io/store/images/SET-001.jpg</g:image_link>
+  <g:price>129.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Zestawy kaligraficzne</g:product_type>
+  <description>Kompletny zestaw dla poczatkujacych: 3 stalowki, uchwyt, atrament czarny, blok A5.</description>
+</item>
+<item>
+  <g:id>SET-102</g:id>
+  <title>Zestaw Profesjonalny Copperplate</title>
+  <link>https://okowalow.github.io/store/product.html?id=SET-102</link>
+  <g:image_link>https://okowalow.github.io/store/images/SET-002.jpg</g:image_link>
+  <g:price>249.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Zestawy kaligraficzne</g:product_type>
+  <description>Zestaw profesjonalny do stylu copperplate.</description>
+</item>
+<item>
+  <g:id>SET-103</g:id>
+  <title>Zestaw Pioro + Atrament Gift Box</title>
+  <link>https://okowalow.github.io/store/product.html?id=SET-103</link>
+  <g:image_link>https://okowalow.github.io/store/images/SET-003.jpg</g:image_link>
+  <g:price>189.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Zestawy kaligraficzne</g:product_type>
+  <description>Elegancki zestaw prezentowy: pioro wieczne i atrament w ozdobnym pudelku.</description>
+</item>
+<item>
+  <g:id>SET-104</g:id>
+  <title>Zestaw Brush Lettering</title>
+  <link>https://okowalow.github.io/store/product.html?id=SET-104</link>
+  <g:image_link>https://okowalow.github.io/store/images/SET-004.jpg</g:image_link>
+  <g:price>99.99 PLN</g:price>
+  <g:availability>in stock</g:availability>
+  <g:brand>Atramento</g:brand>
+  <g:product_type>Zestawy kaligraficzne</g:product_type>
+  <description>Zestaw do brush letteringu: 6 brush penow, blok papieru, poradnik.</description>
+</item>
+</channel>
+</rss>
