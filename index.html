@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atramento — Sklep z Atramentami i Przyborami do Kaligrafii</title>
+    <style>
+        :root {
+            --primary: #2c1810;
+            --secondary: #8b6914;
+            --accent: #c9a84c;
+            --bg: #faf6f0;
+            --bg-card: #fff;
+            --text: #2c1810;
+            --text-light: #6b5c4f;
+            --border: #e0d5c7;
+            --success: #4a7c59;
+            --danger: #a63d40;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--primary);
+            color: #faf6f0;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .logo span { color: var(--accent); }
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        nav a {
+            color: #faf6f0;
+            text-decoration: none;
+            font-size: 15px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: color 0.2s;
+            text-transform: uppercase;
+        }
+        nav a:hover, nav a.active { color: var(--accent); }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            min-height: 60vh;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #4a3228 100%);
+            color: #faf6f0;
+            padding: 80px 40px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            font-size: 18px;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .hero-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 14px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border: none;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        .hero-btn:hover { background: #d4b35a; }
+
+        /* SECTION TITLES */
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 10px auto 0;
+        }
+
+        /* CATEGORY CARDS */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .category-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        .category-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .category-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .category-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* PRODUCT GRID */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #e8ddd0 0%, #d4c5b0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            cursor: pointer;
+        }
+        .product-info {
+            padding: 20px;
+        }
+        .product-category {
+            font-size: 12px;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .product-info h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        .product-info h3:hover { color: var(--secondary); }
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: #faf6f0;
+        }
+        .btn-primary:hover { background: #3d2518; }
+        .btn-accent {
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .btn-accent:hover { background: #d4b35a; }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .btn-outline:hover { border-color: var(--primary); }
+        .btn-danger {
+            background: var(--danger);
+            color: #fff;
+        }
+        .btn-danger:hover { background: #8e3335; }
+        .btn-block { display: block; width: 100%; text-align: center; }
+
+        /* PRODUCT DETAIL */
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .product-detail-image {
+            background: linear-gradient(135deg, #e8ddd0 0%, #d4c5b0 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            min-height: 400px;
+        }
+        .product-detail-info h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .product-detail-info .product-category {
+            margin-bottom: 15px;
+        }
+        .product-detail-info .product-price {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .product-detail-info .description {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .quantity-selector button {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 4px;
+        }
+        .quantity-selector span {
+            font-size: 18px;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        /* CART */
+        .cart-panel {
+            position: fixed;
+            right: -420px;
+            top: 0;
+            width: 400px;
+            height: 100vh;
+            background: var(--bg-card);
+            box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+            z-index: 200;
+            transition: right 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-panel.open { right: 0; }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .cart-header h2 { font-size: 20px; }
+        .cart-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .cart-item-icon {
+            width: 60px;
+            height: 60px;
+            background: #e8ddd0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        .cart-item-details { flex: 1; }
+        .cart-item-details h4 { font-size: 14px; margin-bottom: 4px; }
+        .cart-item-details .price { color: var(--secondary); font-weight: bold; }
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: var(--danger);
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 199;
+            display: none;
+        }
+        .cart-overlay.open { display: block; }
+
+        /* CONTACT FORM */
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 15px;
+            background: var(--bg-card);
+        }
+        .form-group textarea { height: 150px; resize: vertical; }
+
+        /* NEWSLETTER */
+        .newsletter {
+            background: var(--primary);
+            color: #faf6f0;
+            padding: 50px 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        .newsletter h2 { margin-bottom: 10px; }
+        .newsletter p { opacity: 0.8; margin-bottom: 20px; }
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: #faf6f0;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        .footer-section p, .footer-section a {
+            color: #c4b8a8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: #8a7d6f;
+        }
+
+        /* THANK YOU */
+        .thank-you {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .thank-you h1 { color: var(--success); margin-bottom: 15px; }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* FILTER BAR */
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: #faf6f0;
+            border-color: var(--primary);
+        }
+
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: #faf6f0;
+            padding: 15px 25px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 300;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        /* SIMULATOR PANEL */
+        .simulator-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--danger);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            z-index: 300;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+        .simulator-panel {
+            position: fixed;
+            bottom: 60px;
+            left: 20px;
+            width: 380px;
+            max-height: 500px;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            z-index: 300;
+            display: none;
+            flex-direction: column;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        .simulator-panel.open { display: flex; }
+        .simulator-header {
+            padding: 12px 15px;
+            background: #16213e;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .simulator-header h3 { font-size: 14px; color: #e94560; }
+        .simulator-controls {
+            padding: 10px 15px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #2a2a4a;
+        }
+        .sim-btn {
+            padding: 5px 12px;
+            border: 1px solid #3a3a5a;
+            background: #2a2a4a;
+            color: #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 11px;
+        }
+        .sim-btn:hover { background: #3a3a6a; }
+        .sim-btn.active { background: #e94560; border-color: #e94560; }
+        .simulator-log {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px 15px;
+            max-height: 300px;
+        }
+        .log-entry {
+            padding: 4px 0;
+            border-bottom: 1px solid #2a2a3a;
+        }
+        .log-time { color: #666; }
+        .log-action { color: #e94560; font-weight: bold; }
+        .log-email { color: #4ecdc4; }
+        .log-anon { color: #f9a825; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .product-detail { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            nav { gap: 15px; }
+            nav a { font-size: 13px; }
+            .newsletter-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="header-top">
+        <div class="logo" onclick="navigate('home')"><span>Atramento</span></div>
+        <nav>
+            <a onclick="navigate('home')" id="nav-home">Strona Glowna</a>
+            <a onclick="navigate('categories')" id="nav-categories">Kategorie</a>
+            <a onclick="navigate('products')" id="nav-products">Produkty</a>
+            <a onclick="navigate('contact')" id="nav-contact">Kontakt</a>
+        </nav>
+        <div class="cart-icon" onclick="toggleCart()">
+            &#128722;
+            <div class="cart-count" id="cart-count">0</div>
+        </div>
+    </div>
+</header>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+        <h2>Koszyk</h2>
+        <button class="cart-close" onclick="toggleCart()">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Razem:</span>
+            <span id="cart-total-price">0,00 zl</span>
+        </div>
+        <button class="btn btn-accent btn-block" onclick="checkout()">Zamow</button>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- MAIN CONTENT -->
+<main id="app"></main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Atramento</h3>
+            <p>Najlepszy sklep z atramentami i przyborami do kaligrafii w Polsce. Oferujemy produkty najwyzszej jakosci dla profesjonalistow i amatorow.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Informacje</h3>
+            <a onclick="navigate('contact')" style="cursor:pointer">Kontakt</a>
+            <a onclick="navigate('categories')" style="cursor:pointer">Kategorie</a>
+            <a onclick="navigate('products')" style="cursor:pointer">Wszystkie produkty</a>
+        </div>
+        <div class="footer-section">
+            <h3>Kontakt</h3>
+            <p>ul. Kaligraficzna 15, Krakow</p>
+            <p>Tel: +48 12 345 67 89</p>
+            <p>Email: sklep@atramento.pl</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Atramento — Sklep z atramentami i przyborami do kaligrafii. Strona deweloperska.
+    </div>
+</footer>
+
+<!-- SIMULATOR -->
+<button class="simulator-toggle" id="sim-toggle" onclick="toggleSimulator()">edrone Simulator</button>
+<div class="simulator-panel" id="sim-panel">
+    <div class="simulator-header">
+        <h3>edrone Event Simulator</h3>
+        <span id="sim-status">Zatrzymany</span>
+    </div>
+    <div class="simulator-controls">
+        <button class="sim-btn" id="sim-start" onclick="startSimulator()">Start</button>
+        <button class="sim-btn" id="sim-stop" onclick="stopSimulator()">Stop</button>
+        <button class="sim-btn" onclick="sendSingleEvent()">Wyslij 1</button>
+        <button class="sim-btn" onclick="clearLog()">Wyczysc log</button>
+    </div>
+    <div class="simulator-log" id="sim-log"></div>
+</div>
+
+<!-- ======================== -->
+<!-- EDRONE TRACKING SCRIPT   -->
+<!-- ======================== -->
+<script>
+    // =============================================
+    // EDRONE INITIALIZATION
+    // Replace YOUR_APP_ID with your actual App ID from Mission Control
+    // =============================================
+    (function () {
+        window._edrone = window._edrone || {};
+        _edrone.app_id = 'YOUR_APP_ID';
+        _edrone.platform = 'custom';
+        _edrone.version = '1.0';
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.src = 'https://d3bo67muzbfgtl.cloudfront.net/edrone_2_0.js?app_id=' + _edrone.app_id;
+        var firstScript = document.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(script, firstScript);
+    })();
+</script>
+
+<script>
+// =============================================
+// PRODUCT DATA (20 products)
+// =============================================
+const STORE_URL = window.location.href.split('?')[0].split('#')[0];
+
+const categories = [
+    { id: '1', name: 'Atramenty', icon: '🖤' },
+    { id: '2', name: 'Stalowki', icon: '✒️' },
+    { id: '3', name: 'Piora wieczne', icon: '🖋️' },
+    { id: '4', name: 'Papier i Pergaminy', icon: '📜' },
+    { id: '5', name: 'Zestawy kaligraficzne', icon: '🎨' }
+];
+
+const products = [
+    // Atramenty (cat 1)
+    {
+        id: 'INK-001', title: 'Atrament Czarny Klasyczny 50ml',
+        price: 29.99, categoryId: '1', categoryName: 'Atramenty',
+        icon: '🖤', sku: 'ATR-BLK-50',
+        description: 'Klasyczny czarny atrament do kaligrafii. Doskonala plynnosc, gleboka czern. Idealny do codziennej pracy z piorem.'
+    },
+    {
+        id: 'INK-002', title: 'Atrament Sepia Vintage 30ml',
+        price: 34.99, categoryId: '1', categoryName: 'Atramenty',
+        icon: '🤎', sku: 'ATR-SEP-30',
+        description: 'Atrament w kolorze sepii, inspirowany historycznymi dokumentami. Nadaje listom i kaligrafii antyczny charakter.'
+    },
+    {
+        id: 'INK-003', title: 'Atrament Blekitny Niebo 50ml',
+        price: 32.99, categoryId: '1', categoryName: 'Atramenty',
+        icon: '💙', sku: 'ATR-BLU-50',
+        description: 'Delikatny blekitny atrament o subtelnym odcieniu nieba. Swietny do listow i zaprosen.'
+    },
+    {
+        id: 'INK-004', title: 'Zestaw Atramentow 6 kolorow',
+        price: 89.99, categoryId: '1', categoryName: 'Atramenty',
+        icon: '🎨', sku: 'ATR-SET-6',
+        description: 'Zestaw szesciu atramentow w roznych kolorach: czarny, sepia, blekitny, zielony, fioletowy, czerwony.'
+    },
+
+    // Stalowki (cat 2)
+    {
+        id: 'NIB-001', title: 'Stalowka Nikko G',
+        price: 12.99, categoryId: '2', categoryName: 'Stalowki',
+        icon: '✒️', sku: 'NIB-NKG-01',
+        description: 'Popularna stalowka Nikko G, idealna dla poczatkujacych. Elastyczna i latwa w uzyciu.'
+    },
+    {
+        id: 'NIB-002', title: 'Stalowka Brause Steno Blue Pumpkin',
+        price: 8.99, categoryId: '2', categoryName: 'Stalowki',
+        icon: '✒️', sku: 'NIB-BRS-01',
+        description: 'Stalowka Brause o sredniej elastycznosci. Swietna do stylu italik i copperplate.'
+    },
+    {
+        id: 'NIB-003', title: 'Stalowka Hunt 101',
+        price: 14.99, categoryId: '2', categoryName: 'Stalowki',
+        icon: '✒️', sku: 'NIB-HNT-01',
+        description: 'Profesjonalna stalowka Hunt 101 z duzym zbiornikiem atramentu. Idealna do dlugich sesji kaligraficznych.'
+    },
+    {
+        id: 'NIB-004', title: 'Zestaw stalowek 10 szt.',
+        price: 49.99, categoryId: '2', categoryName: 'Stalowki',
+        icon: '✒️', sku: 'NIB-SET-10',
+        description: 'Zestaw dziesieciu roznych stalowek do kaligrafii. Zawiera stalowki pointed pen i broad edge.'
+    },
+
+    // Piora wieczne (cat 3)
+    {
+        id: 'PEN-001', title: 'Pioro Wieczne Lamy Safari',
+        price: 149.99, categoryId: '3', categoryName: 'Piora wieczne',
+        icon: '🖋️', sku: 'PEN-LAM-01',
+        description: 'Kultowe pioro wieczne Lamy Safari. Ergonomiczny chwyt, wymienne naboje. Dostepne w kolorze czarnym.'
+    },
+    {
+        id: 'PEN-002', title: 'Pioro Wieczne Platinum Preppy',
+        price: 39.99, categoryId: '3', categoryName: 'Piora wieczne',
+        icon: '🖋️', sku: 'PEN-PLT-01',
+        description: 'Niedrogie pioro wieczne Platinum Preppy. Swietne dla poczatkujacych. Delikatna stalowka F.'
+    },
+    {
+        id: 'PEN-003', title: 'Pioro Wieczne TWSBI Eco',
+        price: 219.99, categoryId: '3', categoryName: 'Piora wieczne',
+        icon: '🖋️', sku: 'PEN-TWS-01',
+        description: 'Pioro tlokowe TWSBI Eco z przezroczystym korpusem. Duzy zbiornik atramentu, plynne pisanie.'
+    },
+    {
+        id: 'PEN-004', title: 'Pioro Wieczne Parker Sonnet',
+        price: 459.99, categoryId: '3', categoryName: 'Piora wieczne',
+        icon: '🖋️', sku: 'PEN-PRK-01',
+        description: 'Eleganckie pioro wieczne Parker Sonnet ze zlotym stalowka 18K. Idealny prezent dla milosnika pisania.'
+    },
+
+    // Papier i Pergaminy (cat 4)
+    {
+        id: 'PAP-001', title: 'Blok do Kaligrafii A4 100 ark.',
+        price: 44.99, categoryId: '4', categoryName: 'Papier i Pergaminy',
+        icon: '📄', sku: 'PAP-BLK-A4',
+        description: 'Blok papieru do kaligrafii formatu A4, 100 arkuszy. Gladka powierzchnia, gramatura 90g/m2.'
+    },
+    {
+        id: 'PAP-002', title: 'Pergamin Naturalny A3',
+        price: 19.99, categoryId: '4', categoryName: 'Papier i Pergaminy',
+        icon: '📜', sku: 'PAP-PRG-A3',
+        description: 'Autentyczny pergamin formatu A3. Naturalny kolor, idealna powierzchnia do kaligrafii.'
+    },
+    {
+        id: 'PAP-003', title: 'Papier Bawelniany Kremowy 25 ark.',
+        price: 54.99, categoryId: '4', categoryName: 'Papier i Pergaminy',
+        icon: '📃', sku: 'PAP-COT-25',
+        description: 'Luksusowy papier bawelniany w kolorze kremowym. 25 arkuszy, gramatura 120g/m2. Idealny do zaprosen.'
+    },
+    {
+        id: 'PAP-004', title: 'Zwoj Pergaminu 5m',
+        price: 79.99, categoryId: '4', categoryName: 'Papier i Pergaminy',
+        icon: '📜', sku: 'PAP-ZWJ-5M',
+        description: 'Zwoj pergaminu o dlugosci 5 metrow. Imitacja starozytnego pergaminu, idealny do dlugich projektow.'
+    },
+
+    // Zestawy (cat 5)
+    {
+        id: 'SET-001', title: 'Zestaw Startowy do Kaligrafii',
+        price: 129.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne',
+        icon: '🎁', sku: 'SET-STR-01',
+        description: 'Kompletny zestaw dla poczatkujacych: 3 stalowki, uchwyt, atrament czarny, blok A5. Idealny na prezent.'
+    },
+    {
+        id: 'SET-002', title: 'Zestaw Profesjonalny Copperplate',
+        price: 249.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne',
+        icon: '🎁', sku: 'SET-PRO-01',
+        description: 'Zestaw profesjonalny do stylu copperplate: 5 stalowek, 2 uchwyty, 3 atramenty, papier premium.'
+    },
+    {
+        id: 'SET-003', title: 'Zestaw Pioro + Atrament Gift Box',
+        price: 189.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne',
+        icon: '🎁', sku: 'SET-GFT-01',
+        description: 'Elegancki zestaw prezentowy: pioro wieczne i atrament w ozdobnym pudelku. Idealny prezent.'
+    },
+    {
+        id: 'SET-004', title: 'Zestaw Brush Lettering',
+        price: 99.99, categoryId: '5', categoryName: 'Zestawy kaligraficzne',
+        icon: '🎁', sku: 'SET-BRL-01',
+        description: 'Zestaw do brush letteringu: 6 brush penow, blok papieru, poradnik. Swietny na poczatek przygody z liternictwem.'
+    }
+];
+
+// =============================================
+// CART STATE
+// =============================================
+let cart = [];
+
+// =============================================
+// NAVIGATION / SPA ROUTER
+// =============================================
+let currentPage = 'home';
+
+function navigate(page, data) {
+    currentPage = page;
+    const app = document.getElementById('app');
+
+    // Update active nav
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    const navId = 'nav-' + (page === 'product' ? 'products' : page === 'thank-you' ? 'home' : page);
+    const navEl = document.getElementById(navId);
+    if (navEl) navEl.classList.add('active');
+
+    window.scrollTo(0, 0);
+
+    switch (page) {
+        case 'home': renderHome(app); break;
+        case 'categories': renderCategories(app); break;
+        case 'products': renderProducts(app, data); break;
+        case 'product': renderProduct(app, data); break;
+        case 'contact': renderContact(app); break;
+        case 'thank-you': renderThankYou(app, data); break;
+    }
+}
+
+// =============================================
+// PAGE RENDERERS
+// =============================================
+function renderHome(app) {
+    const featured = products.slice(0, 4);
+    app.innerHTML = `
+        <div class="hero">
+            <h1>Sztuka Pisania</h1>
+            <p>Odkryj swiat kaligrafii z najlepszymi atramentami, stalowkami i przyborami do pisania. Tworzymy narzedzia dla artystow slowa.</p>
+            <button class="hero-btn" onclick="navigate('products')">Zobacz produkty</button>
+        </div>
+
+        <h2 class="section-title">Kategorie</h2>
+        <div class="categories-grid">
+            ${categories.map(c => `
+                <div class="category-card" onclick="navigate('products', '${c.id}')">
+                    <div class="category-icon">${c.icon}</div>
+                    <h3>${c.name}</h3>
+                    <p>${products.filter(p => p.categoryId === c.id).length} produktow</p>
+                </div>
+            `).join('')}
+        </div>
+
+        <h2 class="section-title">Polecane produkty</h2>
+        <div class="products-grid">
+            ${featured.map(p => productCard(p)).join('')}
+        </div>
+
+        <div class="newsletter">
+            <h2>Newsletter</h2>
+            <p>Zapisz sie, aby otrzymywac informacje o nowosciach i promocjach.</p>
+            <div class="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Twoj adres email..." />
+                <button class="btn btn-accent" onclick="subscribeNewsletter()">Zapisz sie</button>
+            </div>
+        </div>
+    `;
+
+    // edrone: homepage_view
+    edroneHomepageView();
+}
+
+function renderCategories(app) {
+    app.innerHTML = `
+        <div class="breadcrumb">
+            <a onclick="navigate('home')">Strona glowna</a> / Kategorie
+        </div>
+        <h2 class="section-title">Kategorie</h2>
+        <div class="categories-grid">
+            ${categories.map(c => `
+                <div class="category-card" onclick="navigate('products', '${c.id}')">
+                    <div class="category-icon">${c.icon}</div>
+                    <h3>${c.name}</h3>
+                    <p>${products.filter(p => p.categoryId === c.id).length} produktow</p>
+                </div>
+            `).join('')}
+        </div>
+    `;
+
+    // edrone: category_view (all categories)
+    edroneCategoryView(categories.map(c => c.id).join('|'), categories.map(c => c.name).join('|'));
+}
+
+function renderProducts(app, filterCategoryId) {
+    const filtered = filterCategoryId
+        ? products.filter(p => p.categoryId === filterCategoryId)
+        : products;
+
+    const catName = filterCategoryId
+        ? categories.find(c => c.id === filterCategoryId)?.name || 'Wszystkie'
+        : 'Wszystkie produkty';
+
+    app.innerHTML = `
+        <div class="breadcrumb">
+            <a onclick="navigate('home')">Strona glowna</a> /
+            ${filterCategoryId ? `<a onclick="navigate('categories')">Kategorie</a> / ${catName}` : 'Produkty'}
+        </div>
+        <h2 class="section-title">${catName}</h2>
+        <div class="filter-bar">
+            <button class="filter-btn ${!filterCategoryId ? 'active' : ''}" onclick="navigate('products')">Wszystkie</button>
+            ${categories.map(c => `
+                <button class="filter-btn ${filterCategoryId === c.id ? 'active' : ''}"
+                        onclick="navigate('products', '${c.id}')">${c.name}</button>
+            `).join('')}
+        </div>
+        <div class="products-grid">
+            ${filtered.map(p => productCard(p)).join('')}
+        </div>
+    `;
+
+    // edrone: category_view if filtered
+    if (filterCategoryId) {
+        const cat = categories.find(c => c.id === filterCategoryId);
+        if (cat) edroneCategoryView(cat.id, cat.name);
+    }
+}
+
+function renderProduct(app, productId) {
+    const p = products.find(pr => pr.id === productId);
+    if (!p) { navigate('products'); return; }
+
+    const cat = categories.find(c => c.id === p.categoryId);
+
+    app.innerHTML = `
+        <div class="breadcrumb">
+            <a onclick="navigate('home')">Strona glowna</a> /
+            <a onclick="navigate('products', '${p.categoryId}')">${p.categoryName}</a> /
+            ${p.title}
+        </div>
+        <div class="product-detail">
+            <div class="product-detail-image">${p.icon}</div>
+            <div class="product-detail-info">
+                <div class="product-category">${p.categoryName}</div>
+                <h1>${p.title}</h1>
+                <div class="product-price">${p.price.toFixed(2)} zl</div>
+                <div class="description">${p.description}</div>
+                <div class="quantity-selector">
+                    <span>Ilosc:</span>
+                    <button onclick="changeQty(-1)">-</button>
+                    <span id="product-qty">1</span>
+                    <button onclick="changeQty(1)">+</button>
+                </div>
+                <button class="btn btn-accent" onclick="addToCart('${p.id}')"
+                    style="padding: 14px 40px; font-size: 16px;">
+                    Dodaj do koszyka
+                </button>
+            </div>
+        </div>
+    `;
+
+    // edrone: product_view
+    edroneProductView(p);
+}
+
+function renderContact(app) {
+    app.innerHTML = `
+        <div class="breadcrumb">
+            <a onclick="navigate('home')">Strona glowna</a> / Kontakt
+        </div>
+        <h2 class="section-title">Kontakt</h2>
+        <div class="contact-container">
+            <p style="text-align:center; color: var(--text-light); margin-bottom: 30px;">
+                Masz pytania? Napisz do nas, a odpowiemy najszybciej jak to mozliwe.
+            </p>
+            <div class="form-group">
+                <label>Imie i nazwisko</label>
+                <input type="text" id="contact-name" placeholder="Jan Kowalski" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="contact-email" placeholder="jan@kowalski.pl" />
+            </div>
+            <div class="form-group">
+                <label>Temat</label>
+                <select id="contact-subject">
+                    <option>Pytanie o produkt</option>
+                    <option>Zamowienie</option>
+                    <option>Reklamacja</option>
+                    <option>Wspolpraca</option>
+                    <option>Inne</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Wiadomosc</label>
+                <textarea id="contact-message" placeholder="Twoja wiadomosc..."></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="submitContact()" style="padding: 14px;">Wyslij wiadomosc</button>
+        </div>
+    `;
+}
+
+function renderThankYou(app, orderId) {
+    app.innerHTML = `
+        <div class="thank-you">
+            <h1>Dziekujemy za zamowienie!</h1>
+            <p style="font-size: 18px; color: var(--text-light); margin-bottom: 20px;">
+                Numer zamowienia: <strong>${orderId}</strong>
+            </p>
+            <p style="color: var(--text-light); margin-bottom: 30px;">
+                Potwierdzenie zostanie wyslane na Twoj adres email.
+            </p>
+            <button class="btn btn-primary" onclick="navigate('home')">Wrocz na strone glowna</button>
+        </div>
+    `;
+}
+
+// =============================================
+// HELPERS
+// =============================================
+function productCard(p) {
+    return `
+        <div class="product-card">
+            <div class="product-image" onclick="navigate('product', '${p.id}')">${p.icon}</div>
+            <div class="product-info">
+                <div class="product-category">${p.categoryName}</div>
+                <h3 onclick="navigate('product', '${p.id}')">${p.title}</h3>
+                <div class="product-price">${p.price.toFixed(2)} zl</div>
+                <button class="btn btn-primary" onclick="addToCart('${p.id}')">Dodaj do koszyka</button>
+            </div>
+        </div>
+    `;
+}
+
+let productQty = 1;
+function changeQty(delta) {
+    productQty = Math.max(1, productQty + delta);
+    document.getElementById('product-qty').textContent = productQty;
+}
+
+// =============================================
+// CART LOGIC
+// =============================================
+function addToCart(productId) {
+    const p = products.find(pr => pr.id === productId);
+    if (!p) return;
+
+    const qty = currentPage === 'product' ? productQty : 1;
+    const existing = cart.find(item => item.id === productId);
+    if (existing) {
+        existing.qty += qty;
+    } else {
+        cart.push({ ...p, qty });
+    }
+
+    updateCartUI();
+    showToast(`Dodano "${p.title}" do koszyka`);
+
+    // edrone: add_to_cart
+    edroneAddToCart(p);
+}
+
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    updateCartUI();
+}
+
+function updateCartUI() {
+    const count = cart.reduce((sum, item) => sum + item.qty, 0);
+    document.getElementById('cart-count').textContent = count;
+
+    const cartItems = document.getElementById('cart-items');
+    if (cart.length === 0) {
+        cartItems.innerHTML = '<p style="text-align:center; color: var(--text-light); padding: 40px 0;">Koszyk jest pusty</p>';
+    } else {
+        cartItems.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <div class="cart-item-icon">${item.icon}</div>
+                <div class="cart-item-details">
+                    <h4>${item.title}</h4>
+                    <div class="price">${item.qty} x ${item.price.toFixed(2)} zl</div>
+                </div>
+                <button class="cart-item-remove" onclick="removeFromCart('${item.id}')">&times;</button>
+            </div>
+        `).join('');
+    }
+
+    const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    document.getElementById('cart-total-price').textContent = total.toFixed(2) + ' zl';
+}
+
+function toggleCart() {
+    document.getElementById('cart-panel').classList.toggle('open');
+    document.getElementById('cart-overlay').classList.toggle('open');
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        showToast('Koszyk jest pusty!');
+        return;
+    }
+
+    const orderId = 'ORD-' + Date.now();
+
+    // edrone: order event
+    edroneOrder(orderId, cart);
+
+    // Clear cart
+    const orderItems = [...cart];
+    cart = [];
+    updateCartUI();
+    toggleCart();
+
+    navigate('thank-you', orderId);
+}
+
+// =============================================
+// CONTACT FORM
+// =============================================
+function submitContact() {
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    if (!email) {
+        showToast('Prosze podac adres email');
+        return;
+    }
+    showToast('Wiadomosc wyslana! Dziekujemy.');
+
+    // If email provided, send subscribe event as contact form subscriber
+    if (email) {
+        edroneSubscribe(email, name, 'Contact Form');
+    }
+}
+
+// =============================================
+// NEWSLETTER
+// =============================================
+function subscribeNewsletter() {
+    const emailEl = document.getElementById('newsletter-email');
+    const email = emailEl.value.trim();
+    if (!email || !email.includes('@')) {
+        showToast('Prosze podac poprawny email');
+        return;
+    }
+
+    edroneSubscribe(email, '', 'Newsletter Footer');
+    emailEl.value = '';
+    showToast('Zapisano do newslettera!');
+}
+
+// =============================================
+// TOAST
+// =============================================
+function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// =============================================
+// EDRONE EVENT FUNCTIONS
+// =============================================
+function edroneReset() {
+    // Reset edrone fields before setting new ones
+    const fields = [
+        'action_type', 'email', 'first_name', 'last_name', 'user_id',
+        'subscriber_status', 'sms_subscriber_status', 'customer_tags',
+        'product_ids', 'product_skus', 'product_titles', 'product_images',
+        'product_urls', 'product_availability', 'product_counts',
+        'product_category_ids', 'product_category_names',
+        'order_id', 'country', 'city', 'base_currency', 'order_currency',
+        'base_payment_value', 'order_payment_value', 'phone'
+    ];
+    fields.forEach(f => { delete _edrone[f]; });
+}
+
+function edroneHomepageView() {
+    edroneReset();
+    _edrone.action_type = 'homepage_view';
+    if (typeof _edrone.init === 'function') _edrone.init();
+}
+
+function edroneProductView(product) {
+    edroneReset();
+    _edrone.action_type = 'product_view';
+    _edrone.product_ids = product.id;
+    _edrone.product_titles = encodeURIComponent(product.title);
+    _edrone.product_images = encodeURIComponent(STORE_URL + '#product-' + product.id);
+    _edrone.product_urls = encodeURIComponent(STORE_URL + '#product-' + product.id);
+    _edrone.product_skus = product.sku;
+    _edrone.product_category_ids = product.categoryId;
+    _edrone.product_category_names = encodeURIComponent(product.categoryName);
+    _edrone.product_availability = '1';
+    if (typeof _edrone.init === 'function') _edrone.init();
+}
+
+function edroneCategoryView(categoryIds, categoryNames) {
+    edroneReset();
+    _edrone.action_type = 'category_view';
+    _edrone.product_category_ids = categoryIds;
+    _edrone.product_category_names = encodeURIComponent(categoryNames);
+    if (typeof _edrone.init === 'function') _edrone.init();
+}
+
+function edroneAddToCart(product) {
+    edroneReset();
+    _edrone.action_type = 'add_to_cart';
+    _edrone.product_ids = product.id;
+    _edrone.product_titles = encodeURIComponent(product.title);
+    _edrone.product_images = encodeURIComponent(STORE_URL + '#product-' + product.id);
+    _edrone.product_urls = encodeURIComponent(STORE_URL + '#product-' + product.id);
+    _edrone.product_skus = product.sku;
+    _edrone.product_category_ids = product.categoryId;
+    _edrone.product_category_names = encodeURIComponent(product.categoryName);
+    if (typeof _edrone.init === 'function') _edrone.init();
+}
+
+function edroneOrder(orderId, cartItems) {
+    edroneReset();
+    _edrone.action_type = 'order';
+    _edrone.email = 'klient@atramento.pl';
+    _edrone.first_name = 'Jan';
+    _edrone.last_name = 'Kowalski';
+    _edrone.user_id = 'CUST-001';
+    _edrone.subscriber_status = '1';
+    _edrone.order_id = orderId;
+    _edrone.country = 'PL';
+    _edrone.city = 'Krakow';
+    _edrone.base_currency = 'PLN';
+    _edrone.order_currency = 'PLN';
+
+    const total = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
+    _edrone.base_payment_value = total.toFixed(2);
+    _edrone.order_payment_value = total.toFixed(2);
+
+    _edrone.product_ids = cartItems.map(i => i.id).join('|');
+    _edrone.product_skus = cartItems.map(i => i.sku).join('|');
+    _edrone.product_titles = cartItems.map(i => encodeURIComponent(i.title)).join('|');
+    _edrone.product_images = cartItems.map(i => encodeURIComponent(STORE_URL + '#product-' + i.id)).join('|');
+    _edrone.product_urls = cartItems.map(i => encodeURIComponent(STORE_URL + '#product-' + i.id)).join('|');
+    _edrone.product_counts = cartItems.map(i => i.qty).join('|');
+    _edrone.product_category_ids = cartItems.map(i => i.categoryId).join('|');
+    _edrone.product_category_names = cartItems.map(i => encodeURIComponent(i.categoryName)).join('|');
+
+    if (typeof _edrone.init === 'function') _edrone.init();
+}
+
+function edroneOrderCancel(orderId, email) {
+    // order_cancel is backend-only, but we simulate the POST request
+    const data = new URLSearchParams({
+        app_id: _edrone.app_id,
+        sender_type: 'server',
+        action_type: 'order_cancel',
+        order_id: orderId,
+        email: email
+    });
+    fetch('https://api.edrone.me/trace', { method: 'POST', body: data }).catch(() => {});
+}
+
+function edroneSubscribe(email, firstName, tag) {
+    edroneReset();
+    _edrone.action_type = 'subscribe';
+    _edrone.email = email;
+    _edrone.subscriber_status = '1';
+    _edrone.customer_tags = tag || 'Newsletter';
+    if (firstName) _edrone.first_name = firstName;
+    if (typeof _edrone.init === 'function') _edrone.init();
+}
+
+
+// =============================================
+// EDRONE EVENT SIMULATOR
+// =============================================
+let simulatorInterval = null;
+const simulatorLog = [];
+
+// Fake customer profiles for simulation
+const fakeCustomers = [
+    { email: 'anna.nowak@gmail.com', first_name: 'Anna', last_name: 'Nowak', user_id: 'CUST-SIM-001' },
+    { email: 'piotr.wisniewski@wp.pl', first_name: 'Piotr', last_name: 'Wisniewski', user_id: 'CUST-SIM-002' },
+    { email: 'maria.kowalczyk@onet.pl', first_name: 'Maria', last_name: 'Kowalczyk', user_id: 'CUST-SIM-003' },
+    { email: 'jan.zielinski@gmail.com', first_name: 'Jan', last_name: 'Zielinski', user_id: 'CUST-SIM-004' },
+    { email: 'katarzyna.wozniak@yahoo.com', first_name: 'Katarzyna', last_name: 'Wozniak', user_id: 'CUST-SIM-005' },
+];
+
+// Action types to simulate (weighted for realistic distribution)
+const simulatedActions = [
+    { type: 'homepage_view', weight: 25 },
+    { type: 'product_view', weight: 25 },
+    { type: 'category_view', weight: 15 },
+    { type: 'add_to_cart', weight: 12 },
+    { type: 'subscribe', weight: 8 },
+    { type: 'order', weight: 10 },
+    { type: 'order_cancel', weight: 5 },
+];
+
+function pickWeightedAction() {
+    const totalWeight = simulatedActions.reduce((s, a) => s + a.weight, 0);
+    let rand = Math.random() * totalWeight;
+    for (const action of simulatedActions) {
+        rand -= action.weight;
+        if (rand <= 0) return action.type;
+    }
+    return 'homepage_view';
+}
+
+function pickRandomProduct() {
+    return products[Math.floor(Math.random() * products.length)];
+}
+
+function pickRandomCategory() {
+    return categories[Math.floor(Math.random() * categories.length)];
+}
+
+function pickRandomCustomerOrAnon() {
+    // 40% chance anonymous, 60% chance identified customer
+    if (Math.random() < 0.4) return null;
+    return fakeCustomers[Math.floor(Math.random() * fakeCustomers.length)];
+}
+
+let simOrderCounter = 1000;
+
+function simulateEvent() {
+    const actionType = pickWeightedAction();
+    const customer = pickRandomCustomerOrAnon();
+    const isAnon = !customer;
+
+    edroneReset();
+
+    // Set customer info if identified
+    if (customer) {
+        _edrone.email = customer.email;
+        _edrone.first_name = customer.first_name;
+        _edrone.last_name = customer.last_name;
+        _edrone.user_id = customer.user_id;
+    }
+
+    let logDetail = '';
+
+    switch (actionType) {
+        case 'homepage_view': {
+            _edrone.action_type = 'homepage_view';
+            logDetail = 'Strona glowna';
+            if (typeof _edrone.init === 'function') _edrone.init();
+            break;
+        }
+        case 'product_view': {
+            const p = pickRandomProduct();
+            _edrone.action_type = 'product_view';
+            _edrone.product_ids = p.id;
+            _edrone.product_titles = encodeURIComponent(p.title);
+            _edrone.product_images = encodeURIComponent(STORE_URL + '#product-' + p.id);
+            _edrone.product_urls = encodeURIComponent(STORE_URL + '#product-' + p.id);
+            _edrone.product_skus = p.sku;
+            _edrone.product_category_ids = p.categoryId;
+            _edrone.product_category_names = encodeURIComponent(p.categoryName);
+            _edrone.product_availability = '1';
+            logDetail = p.title;
+            if (typeof _edrone.init === 'function') _edrone.init();
+            break;
+        }
+        case 'category_view': {
+            const cat = pickRandomCategory();
+            _edrone.action_type = 'category_view';
+            _edrone.product_category_ids = cat.id;
+            _edrone.product_category_names = encodeURIComponent(cat.name);
+            logDetail = cat.name;
+            if (typeof _edrone.init === 'function') _edrone.init();
+            break;
+        }
+        case 'add_to_cart': {
+            const p = pickRandomProduct();
+            _edrone.action_type = 'add_to_cart';
+            _edrone.product_ids = p.id;
+            _edrone.product_titles = encodeURIComponent(p.title);
+            _edrone.product_images = encodeURIComponent(STORE_URL + '#product-' + p.id);
+            _edrone.product_urls = encodeURIComponent(STORE_URL + '#product-' + p.id);
+            _edrone.product_skus = p.sku;
+            _edrone.product_category_ids = p.categoryId;
+            _edrone.product_category_names = encodeURIComponent(p.categoryName);
+            logDetail = p.title;
+            if (typeof _edrone.init === 'function') _edrone.init();
+            break;
+        }
+        case 'subscribe': {
+            // Subscribe always needs an email
+            const subCustomer = customer || fakeCustomers[Math.floor(Math.random() * fakeCustomers.length)];
+            _edrone.action_type = 'subscribe';
+            _edrone.email = subCustomer.email;
+            _edrone.first_name = subCustomer.first_name;
+            _edrone.subscriber_status = '1';
+            const tags = ['Newsletter Footer', 'Exit Popup', 'Sidebar Form', 'Checkout Subscribe'];
+            _edrone.customer_tags = tags[Math.floor(Math.random() * tags.length)];
+            logDetail = subCustomer.email + ' (' + _edrone.customer_tags + ')';
+            if (typeof _edrone.init === 'function') _edrone.init();
+            break;
+        }
+        case 'order': {
+            // Order always needs customer
+            const orderCustomer = customer || fakeCustomers[Math.floor(Math.random() * fakeCustomers.length)];
+            const orderProducts = [];
+            const numProducts = Math.floor(Math.random() * 3) + 1;
+            for (let i = 0; i < numProducts; i++) {
+                orderProducts.push({ ...pickRandomProduct(), qty: Math.floor(Math.random() * 3) + 1 });
+            }
+            const orderId = 'SIM-ORD-' + (simOrderCounter++);
+            const total = orderProducts.reduce((s, p) => s + p.price * p.qty, 0);
+
+            _edrone.action_type = 'order';
+            _edrone.email = orderCustomer.email;
+            _edrone.first_name = orderCustomer.first_name;
+            _edrone.last_name = orderCustomer.last_name;
+            _edrone.user_id = orderCustomer.user_id;
+            _edrone.subscriber_status = '1';
+            _edrone.order_id = orderId;
+            _edrone.country = 'PL';
+            _edrone.city = ['Krakow', 'Warszawa', 'Wroclaw', 'Gdansk', 'Poznan'][Math.floor(Math.random() * 5)];
+            _edrone.base_currency = 'PLN';
+            _edrone.order_currency = 'PLN';
+            _edrone.base_payment_value = total.toFixed(2);
+            _edrone.order_payment_value = total.toFixed(2);
+            _edrone.product_ids = orderProducts.map(p => p.id).join('|');
+            _edrone.product_skus = orderProducts.map(p => p.sku).join('|');
+            _edrone.product_titles = orderProducts.map(p => encodeURIComponent(p.title)).join('|');
+            _edrone.product_images = orderProducts.map(p => encodeURIComponent(STORE_URL + '#product-' + p.id)).join('|');
+            _edrone.product_urls = orderProducts.map(p => encodeURIComponent(STORE_URL + '#product-' + p.id)).join('|');
+            _edrone.product_counts = orderProducts.map(p => p.qty).join('|');
+            _edrone.product_category_ids = orderProducts.map(p => p.categoryId).join('|');
+            _edrone.product_category_names = orderProducts.map(p => encodeURIComponent(p.categoryName)).join('|');
+            logDetail = orderId + ' (' + total.toFixed(2) + ' PLN, ' + orderCustomer.email + ')';
+            if (typeof _edrone.init === 'function') _edrone.init();
+            break;
+        }
+        case 'order_cancel': {
+            // Cancel a simulated order (backend event)
+            const cancelCustomer = customer || fakeCustomers[Math.floor(Math.random() * fakeCustomers.length)];
+            const cancelOrderId = 'SIM-ORD-' + (Math.floor(Math.random() * simOrderCounter));
+            const data = new URLSearchParams({
+                app_id: _edrone.app_id,
+                sender_type: 'server',
+                action_type: 'order_cancel',
+                order_id: cancelOrderId,
+                email: cancelCustomer.email
+            });
+            fetch('https://api.edrone.me/trace', { method: 'POST', body: data }).catch(() => {});
+            logDetail = cancelOrderId + ' (' + cancelCustomer.email + ')';
+            break;
+        }
+    }
+
+    // Log to simulator panel
+    addLogEntry(actionType, customer, logDetail, isAnon && actionType !== 'subscribe' && actionType !== 'order');
+}
+
+function addLogEntry(actionType, customer, detail, isAnon) {
+    const time = new Date().toLocaleTimeString();
+    const userInfo = isAnon
+        ? '<span class="log-anon">anonim</span>'
+        : `<span class="log-email">${customer ? customer.email : '?'}</span>`;
+
+    const entry = `<div class="log-entry">
+        <span class="log-time">${time}</span>
+        <span class="log-action">${actionType}</span>
+        ${userInfo}
+        <br/><small>${detail}</small>
+    </div>`;
+
+    const logEl = document.getElementById('sim-log');
+    logEl.innerHTML = entry + logEl.innerHTML;
+
+    // Keep log max 50 entries
+    const entries = logEl.querySelectorAll('.log-entry');
+    if (entries.length > 50) {
+        for (let i = 50; i < entries.length; i++) entries[i].remove();
+    }
+}
+
+function startSimulator() {
+    if (simulatorInterval) return;
+    // Send events every 3-8 seconds randomly
+    function scheduleNext() {
+        const delay = 3000 + Math.random() * 5000;
+        simulatorInterval = setTimeout(() => {
+            simulateEvent();
+            scheduleNext();
+        }, delay);
+    }
+    simulateEvent(); // Send first immediately
+    scheduleNext();
+    document.getElementById('sim-status').textContent = 'Dziala...';
+    document.getElementById('sim-status').style.color = '#4ecdc4';
+    document.getElementById('sim-start').classList.add('active');
+}
+
+function stopSimulator() {
+    if (simulatorInterval) {
+        clearTimeout(simulatorInterval);
+        simulatorInterval = null;
+    }
+    document.getElementById('sim-status').textContent = 'Zatrzymany';
+    document.getElementById('sim-status').style.color = '#e0e0e0';
+    document.getElementById('sim-start').classList.remove('active');
+}
+
+function sendSingleEvent() {
+    simulateEvent();
+}
+
+function clearLog() {
+    document.getElementById('sim-log').innerHTML = '';
+}
+
+function toggleSimulator() {
+    document.getElementById('sim-panel').classList.toggle('open');
+}
+
+// =============================================
+// INIT
+// =============================================
+updateCartUI();
+navigate('home');
+</script>
+
+</body>
+</html>
