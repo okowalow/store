@@ -57,7 +57,7 @@ function addToCart(productId, qty) {
     saveCart();
     updateCartUI();
     showToast('Dodano "' + p.title + '" do koszyka');
-    edroneAddToCart(p);
+    edroneAddToCart(p, qty);
 }
 
 function removeFromCart(productId) {
@@ -186,7 +186,7 @@ function edroneCategoryView(categoryIds, categoryNames) {
     if (typeof _edrone.init === 'function') _edrone.init();
 }
 
-function edroneAddToCart(product) {
+function edroneAddToCart(product, qty) {
     edroneReset();
     _edrone.action_type = 'add_to_cart';
     _edrone.product_ids = product.id;
@@ -194,6 +194,7 @@ function edroneAddToCart(product) {
     _edrone.product_images = getFullImageUrl(product.image);
     _edrone.product_urls = STORE_URL + 'product.html?id=' + product.id;
     _edrone.product_skus = product.sku;
+    _edrone.product_counts = String(qty || 1);
     _edrone.product_category_ids = product.categoryId;
     _edrone.product_category_names = encodeURIComponent(product.categoryName);
     if (typeof _edrone.init === 'function') _edrone.init();
