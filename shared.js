@@ -203,10 +203,10 @@ function edroneAddToCart(product, qty) {
 function edroneOrder(orderId, cartItems) {
     edroneReset();
     _edrone.action_type = 'order';
-    _edrone.email = 'test-order-001@test.invalid';
-    _edrone.first_name = 'Jan';
-    _edrone.last_name = 'Kowalski';
-    _edrone.user_id = 'CUST-001';
+    _edrone.email = 'testbot-checkout-5f9u@test.invalid';
+    _edrone.first_name = 'Marek';
+    _edrone.last_name = 'Borkowski';
+    _edrone.user_id = 'FAKE-800';
     _edrone.subscriber_status = '1';
     _edrone.order_id = orderId;
     _edrone.country = 'PL';
@@ -243,11 +243,11 @@ function edroneSubscribe(email, firstName, tag) {
 var simulatorInterval = null;
 
 var fakeCustomers = [
-    { email: 'sim-anna-n-001@test.invalid', first_name: 'Anna', last_name: 'Nowak', user_id: 'CUST-SIM-001' },
-    { email: 'sim-piotr-w-002@test.invalid', first_name: 'Piotr', last_name: 'Wisniewski', user_id: 'CUST-SIM-002' },
-    { email: 'sim-maria-k-003@test.invalid', first_name: 'Maria', last_name: 'Kowalczyk', user_id: 'CUST-SIM-003' },
-    { email: 'sim-jan-z-004@test.invalid', first_name: 'Jan', last_name: 'Zielinski', user_id: 'CUST-SIM-004' },
-    { email: 'sim-katarzyna-w-005@test.invalid', first_name: 'Katarzyna', last_name: 'Wozniak', user_id: 'CUST-SIM-005' },
+    { email: 'testbot-ewa-7a3x@test.invalid', first_name: 'Ewa', last_name: 'Dabrowska', user_id: 'FAKE-701' },
+    { email: 'testbot-tomek-8b4y@test.invalid', first_name: 'Tomasz', last_name: 'Grabowski', user_id: 'FAKE-702' },
+    { email: 'testbot-magda-9c5z@test.invalid', first_name: 'Magdalena', last_name: 'Jankowska', user_id: 'FAKE-703' },
+    { email: 'testbot-rafal-2d6w@test.invalid', first_name: 'Rafal', last_name: 'Mazur', user_id: 'FAKE-704' },
+    { email: 'testbot-zofia-4e8v@test.invalid', first_name: 'Zofia', last_name: 'Pawlak', user_id: 'FAKE-705' },
 ];
 
 var simulatedActions = [
