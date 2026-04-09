@@ -203,7 +203,7 @@ function edroneAddToCart(product, qty) {
 function edroneOrder(orderId, cartItems) {
     edroneReset();
     _edrone.action_type = 'order';
-    _edrone.email = 'klient@atramento.pl';
+    _edrone.email = 'test-order-001@test.invalid';
     _edrone.first_name = 'Jan';
     _edrone.last_name = 'Kowalski';
     _edrone.user_id = 'CUST-001';
@@ -243,11 +243,11 @@ function edroneSubscribe(email, firstName, tag) {
 var simulatorInterval = null;
 
 var fakeCustomers = [
-    { email: 'anna.nowak@gmail.com', first_name: 'Anna', last_name: 'Nowak', user_id: 'CUST-SIM-001' },
-    { email: 'piotr.wisniewski@wp.pl', first_name: 'Piotr', last_name: 'Wisniewski', user_id: 'CUST-SIM-002' },
-    { email: 'maria.kowalczyk@onet.pl', first_name: 'Maria', last_name: 'Kowalczyk', user_id: 'CUST-SIM-003' },
-    { email: 'jan.zielinski@gmail.com', first_name: 'Jan', last_name: 'Zielinski', user_id: 'CUST-SIM-004' },
-    { email: 'katarzyna.wozniak@yahoo.com', first_name: 'Katarzyna', last_name: 'Wozniak', user_id: 'CUST-SIM-005' },
+    { email: 'sim-anna-n-001@test.invalid', first_name: 'Anna', last_name: 'Nowak', user_id: 'CUST-SIM-001' },
+    { email: 'sim-piotr-w-002@test.invalid', first_name: 'Piotr', last_name: 'Wisniewski', user_id: 'CUST-SIM-002' },
+    { email: 'sim-maria-k-003@test.invalid', first_name: 'Maria', last_name: 'Kowalczyk', user_id: 'CUST-SIM-003' },
+    { email: 'sim-jan-z-004@test.invalid', first_name: 'Jan', last_name: 'Zielinski', user_id: 'CUST-SIM-004' },
+    { email: 'sim-katarzyna-w-005@test.invalid', first_name: 'Katarzyna', last_name: 'Wozniak', user_id: 'CUST-SIM-005' },
 ];
 
 var simulatedActions = [
